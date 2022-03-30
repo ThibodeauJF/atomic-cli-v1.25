@@ -11,7 +11,14 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null, // disable service workers
-      copy: [{ src: "pages", keepDirStructure: false }],
+      copy: [
+        { src: "pages", keepDirStructure: false },
+        {
+          src: "../node_modules/@coveo/atomic/dist/atomic",
+          dest: "build/atomic",
+          keepDirStructure: false,
+        },
+      ],
     },
   ],
   plugins: [dotenvPlugin()],
